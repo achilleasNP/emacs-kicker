@@ -78,7 +78,6 @@
  '(el-get				; el-get is self-hosting
    evil-surround                        ; Evil surround moves
    evil-leader                          ; Easy leader setup
-   org-mode                             ; Org mode 
    evil-org-mode                        ; Evil org mode
    escreen            			; screen for emacs, C-\ C-h
    switch-window			; takes over C-x o
