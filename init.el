@@ -201,7 +201,7 @@
 
 
 ;; EVIL leader key
-(evil-leader/set-leader "\")
+(evil-leader/set-leader "\\")
 
 ;; full screen
 (defun fullscreen ()
