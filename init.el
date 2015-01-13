@@ -43,6 +43,11 @@
 	  :after (progn
 		   (global-set-key (kbd "C-x C-z") 'magit-status)))
 
+   (:name evil				; vim emulation emacs 
+	  :after (progn
+		   (evil-mode 1)))
+
+
    
    (:name evil-args                     ; Arg for evil
           :after (progn
@@ -57,9 +62,17 @@
                 (define-key evil-motion-state-map "H" 'evil-backward-arg)
 
                 ;; bind evil-jump-out-args
-                (define-key evil-normal-state-map "K" 'evil-jump-out-args)))
+                (define-key evil-normal-state-map "K" 'evil-jump-out-args))) 
 
-       
+    (:name evil-extra-operator
+           :type github
+           :description "Evil operator for evaluating codes, translating text, taking notes, searching via google, etc"
+           :pkgname "Dewdrops/evil-extra-operator"
+           :features evil-extra-operator
+           :depends evil
+	   :after (progn
+		    (global-evil-extra-operator-mode 1)))
+           
 
    (:name goto-last-change		; move pointer back to last change
 	  :after (progn
@@ -70,7 +83,6 @@
 (setq
  my:el-get-packages
  '(el-get				; el-get is self-hosting
-   evil                                 ; Evil vim keybindings
    evil-surround                        ; Evil surround moves
    escreen            			; screen for emacs, C-\ C-h
    switch-window			; takes over C-x o
@@ -135,9 +147,6 @@
 ;; Navigate windows with M-<arrows>
 (windmove-default-keybindings 'meta)
 (setq windmove-wrap-around t)
-
-; Set evil mode
-(evil mode 1)
 
 ; winner-mode provides C-<left> to get back to previous window layout
 (winner-mode 1)
