@@ -123,7 +123,7 @@
 ;; choose your own fonts, in a system dependant way
 (if (string-match "apple-darwin" system-configuration)
     (set-face-font 'default "Monaco-13")
-  (set-face-font 'default "Terminus-12"))
+  (set-face-font 'default "Terminus-14"))
 
 (global-hl-line-mode)			; highlight current line
 (global-linum-mode 1)			; add line numbers on the left
