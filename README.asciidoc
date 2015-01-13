@@ -1,4 +1,8 @@
-= Emacs Kicker
+= Emacs Kicker Evil
+
+This repository contains a fork of the starter-kit for emacs
+that has been modified to work with evil. The instructions
+below are from the original repository
 
 This repository contains a starter-kit for Emacs.  If you're new and want to
 try the editor with a easy setup, that's for you.  See
