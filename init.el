@@ -6,7 +6,6 @@
 ;; Created: 2011-04-15
 ;; Keywords: emacs setup el-get kick-start starter-kit
 ;; Licence: WTFPL, grab your copy here: http://sam.zoy.org/wtfpl/
-;;
 ;; This file is NOT part of GNU Emacs.
 
 (require 'cl)				; common lisp goodies, loop
@@ -71,19 +70,16 @@
            :features evil-extra-operator
            :depends evil
 	   :after (progn
-		    (global-evil-extra-operator-mode 1)))
-           
-
-   (:name goto-last-change		; move pointer back to last change
-	  :after (progn
-		   ;; when using AZERTY keyboard, consider C-x C-_
-		   (global-set-key (kbd "C-x C-/") 'goto-last-change)))))
+		    (global-evil-extra-operator-mode 1)))))
 
 ;; now set our own packages
 (setq
  my:el-get-packages
  '(el-get				; el-get is self-hosting
    evil-surround                        ; Evil surround moves
+   evil-leader                          ; Easy leader setup
+   org-mode                             ; Org mode 
+   evil-org-mode                        ; Evil org mode
    escreen            			; screen for emacs, C-\ C-h
    switch-window			; takes over C-x o
    auto-complete			; complete as you type with overlays
