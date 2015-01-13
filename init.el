@@ -43,6 +43,24 @@
 	  :after (progn
 		   (global-set-key (kbd "C-x C-z") 'magit-status)))
 
+   
+   (:name evil-args                     ; Arg for evil
+          :after (progn
+                ;;bind evil-args text objects
+                (define-key evil-inner-text-objects-map "a" 'evil-inner-arg)
+                (define-key evil-outer-text-objects-map "a" 'evil-outer-arg)
+
+                ;; bind evil-forward/backward-args
+                (define-key evil-normal-state-map "L" 'evil-forward-arg)
+                (define-key evil-normal-state-map "H" 'evil-backward-arg)
+                (define-key evil-motion-state-map "L" 'evil-forward-arg)
+                (define-key evil-motion-state-map "H" 'evil-backward-arg)
+
+                ;; bind evil-jump-out-args
+                (define-key evil-normal-state-map "K" 'evil-jump-out-args)))
+
+       
+
    (:name goto-last-change		; move pointer back to last change
 	  :after (progn
 		   ;; when using AZERTY keyboard, consider C-x C-_
@@ -52,8 +70,9 @@
 (setq
  my:el-get-packages
  '(el-get				; el-get is self-hosting
+   evil                                 ; Evil vim keybindings
+   evil-surround                        ; Evil surround moves
    escreen            			; screen for emacs, C-\ C-h
-   php-mode-improved			; if you're into php...
    switch-window			; takes over C-x o
    auto-complete			; complete as you type with overlays
    yasnippet 				; powerful snippet mode
@@ -96,16 +115,13 @@
 ;; choose your own fonts, in a system dependant way
 (if (string-match "apple-darwin" system-configuration)
     (set-face-font 'default "Monaco-13")
-  (set-face-font 'default "Monospace-10"))
+  (set-face-font 'default "Terminus-12"))
 
 (global-hl-line-mode)			; highlight current line
 (global-linum-mode 1)			; add line numbers on the left
 
 ;; avoid compiz manager rendering bugs
 (add-to-list 'default-frame-alist '(alpha . 100))
-
-;; copy/paste with C-c and C-v and C-x, check out C-RET too
-(cua-mode)
 
 ;; under mac, have Command as Meta and keep Option for localized input
 (when (string-match "apple-darwin" system-configuration)
@@ -119,6 +135,9 @@
 ;; Navigate windows with M-<arrows>
 (windmove-default-keybindings 'meta)
 (setq windmove-wrap-around t)
+
+; Set evil mode
+(evil mode 1)
 
 ; winner-mode provides C-<left> to get back to previous window layout
 (winner-mode 1)
@@ -141,6 +160,7 @@
 ;;
 ;; The default way to toggle between them is C-c C-j and C-c C-k, let's
 ;; better use just one key to do the same.
+;; I should change this but no sure to what
 (require 'term)
 (define-key term-raw-map  (kbd "C-'") 'term-line-mode)
 (define-key term-mode-map (kbd "C-'") 'term-char-mode)
