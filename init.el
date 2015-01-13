@@ -203,6 +203,10 @@
 ;; EVIL leader key
 (evil-leader/set-leader "\\")
 
+;; Org setup timestamp
+(require 'org)
+(setq org-log-done t)
+
 ;; full screen
 (defun fullscreen ()
   (interactive)
