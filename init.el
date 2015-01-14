@@ -210,7 +210,6 @@
 ;; Org file
 ;; (setq org-agenda-files (list "~/org/work.org"
 ;;			     "~/org/home.org"
-;;			     "~/org/najib.org"
 ;;			     ))
 
 ;; full screen
