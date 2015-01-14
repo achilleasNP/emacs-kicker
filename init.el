@@ -205,6 +205,7 @@
 
 ;; Org setup timestamp
 (require 'org)
+(require 'evil-org)
 (setq org-log-done t)
 
 ;; full screen
