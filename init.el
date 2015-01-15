@@ -219,3 +219,11 @@
   (set-frame-parameter nil 'fullscreen
 		       (if (frame-parameter nil 'fullscreen) nil 'fullboth)))
 (global-set-key [f11] 'fullscreen)
+
+;; Auto-complete
+
+;; Add ac-source-filename to ac-sources of all buffers
+;; the manual of autocomplete claims that ac-source-filename
+;; already there but evaluating ac-sources didn't show it
+(defun ac-common-setup ()
+ (setq ac-sources (append ac-sources '(ac-source-filename))))
