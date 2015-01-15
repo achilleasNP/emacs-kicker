@@ -47,6 +47,11 @@
 		   (evil-mode 1)))
 
 
+   (:name evil-leader				; easy key setup 
+	  :after (progn
+		   (global-evil-leader-mode t)))
+
+
    
    (:name evil-args                     ; Arg for evil
           :after (progn
@@ -77,7 +82,6 @@
  my:el-get-packages
  '(el-get				; el-get is self-hosting
    evil-surround                        ; Evil surround moves
-   evil-leader                          ; Easy leader setup
    evil-org-mode                        ; Evil org mode
    escreen            			; screen for emacs, C-\ C-h
    switch-window			; takes over C-x o
@@ -201,8 +205,10 @@
 (require 'dired-x)
 
 
-;; EVIL leader key
-(evil-leader/set-leader "\\")
+;; EVIL leader key the default is "\\"
+;;(evil-leader/set-leader ",")
+;;(evil-mode t)
+;;(kill-buffer "*Messages*)
 
 ;; Org setup timestamp
 (require 'org)
