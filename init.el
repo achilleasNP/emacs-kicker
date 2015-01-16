@@ -206,9 +206,14 @@
 
 
 ;; EVIL leader key the default is "\\"
-;;(evil-leader/set-leader ",")
-;;(evil-mode t)
-;;(kill-buffer "*Messages*)
+;; define maps
+(evil-leader/set-leader ",") ;; Using "," as a leader reserves \ for emacs
+(evil-leader/set-key "w" 'save-buffer)  ;; write buffer
+(evil-leader/set-key "q" 'kill-buffer-and-window) ;; kill buffer
+(evil-mode t)
+(kill-buffer "*Messages*")
+
+
 
 ;; Org setup timestamp
 (require 'org)
