@@ -89,7 +89,9 @@
    yasnippet 				; powerful snippet mode
    zencoding-mode			; http://www.emacswiki.org/emacs/ZenCoding
    color-theme		                ; nice looking emacs
-   color-theme-tango))	                ; check out color-theme-solarized
+   color-theme-tango	                ; check out color-theme-solarized
+   ess ))                               ; ESS for R 
+   
 
 ;;
 ;; Some recipes require extra tools to be installed
@@ -208,8 +210,16 @@
 ;; EVIL leader key the default is "\\"
 ;; define maps
 (evil-leader/set-leader ",") ;; Using "," as a leader reserves \ for emacs
-(evil-leader/set-key "w" 'save-buffer)  ;; write buffer
-(evil-leader/set-key "q" 'kill-buffer-and-window) ;; kill buffer
+(global-evil-leader-mode)
+(evil-leader/set-key "w" 'save-buffer  ;; write buffer
+		     "q" 'kill-buffer-and-window ;; kill buffer
+		     "ma" (kbd "M-x")) ;; Meta-x bound to <leader> a 
+
+;; Setup for ESS
+(add-to-list 'auto-mode-alist '("\\.R\\'" . R-mode))
+(evil-leader/set-key-for-mode 'ess-mode "r" 'ess-eval-region ;; ess eval region 
+                                        "l" 'ess-eval-line)  ;; ess eval line
+
 (evil-mode t)
 (kill-buffer "*Messages*")
 
