@@ -212,8 +212,7 @@
 (evil-leader/set-leader ",") ;; Using "," as a leader reserves \ for emacs
 (global-evil-leader-mode)
 (evil-leader/set-key "w" 'save-buffer  ;; write buffer
-		     "q" 'kill-buffer-and-window ;; kill buffer
-		     "ma" (kbd "M-x")) ;; Meta-x bound to <leader> a 
+		     "q" 'kill-buffer-and-window ) ;; kill buffer
 
 ;; Setup for ESS
 (add-to-list 'auto-mode-alist '("\\.R\\'" . R-mode))
@@ -229,6 +228,14 @@
 (require 'org)
 (require 'evil-org)
 (setq org-log-done t)
+;; Clocking
+(setq org-clock-persist 'history)
+(org-clock-persistence-insinuate)
+
+(evil-leader/set-key-for-mode 'org-mode "st" 'org-clock-in ;; clock in 
+                                        "sT" 'org-clock-out)  ;; clock out
+
+
 
 ;; Org file
 ;; (setq org-agenda-files (list "~/org/work.org"
