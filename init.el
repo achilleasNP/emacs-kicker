@@ -233,7 +233,22 @@
 (org-clock-persistence-insinuate)
 
 (evil-leader/set-key-for-mode 'org-mode "st" 'org-clock-in ;; clock in 
-                                        "sT" 'org-clock-out)  ;; clock out
+  "sT" 'org-clock-out)  ;; clock out
+
+;; Org languages
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(
+   (sh . t)
+   (python . t)
+   (R . t)
+   (ruby . t)
+   (ditaa . t)
+   (dot . t)
+   (octave . t)
+   (sqlite . t)
+   (perl . t)
+   ))
 
 
 
