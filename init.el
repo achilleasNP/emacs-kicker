@@ -216,6 +216,12 @@
 
 ;; Setup for ESS
 (add-to-list 'auto-mode-alist '("\\.R\\'" . R-mode))
+
+;; Julia setup in ESS
+(autoload 'julia-mode "ess-site.el" "ESS package julia mode" t)
+(add-to-list 'auto-mode-alist '("\\.jl\\'" . julia-mode))
+;;(setq inferior-julia-program-name "/usr/bin/julia")
+
 (evil-leader/set-key-for-mode 'ess-mode "r" 'ess-eval-region ;; ess eval region 
                                         "l" 'ess-eval-line)  ;; ess eval line
 
