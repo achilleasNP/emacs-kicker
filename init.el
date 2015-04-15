@@ -90,6 +90,7 @@
    zencoding-mode			; http://www.emacswiki.org/emacs/ZenCoding
    color-theme		                ; nice looking emacs
    color-theme-tango	                ; check out color-theme-solarized
+   haskell-mode                         ; Haskell mode
    ess ))                               ; ESS for R 
    
 
